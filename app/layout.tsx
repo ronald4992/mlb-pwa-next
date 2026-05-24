@@ -1,9 +1,11 @@
 import "./globals.css";
 import Link from "next/link";
+import SWRegistration from "./SWRegistration";
 
 export const metadata = {
   title: "Baseball League",
   description: "Aplicación de béisbol con trivia",
+  manifest: "/manifest,json",
 };
 
 export default function RootLayout({
@@ -26,6 +28,8 @@ export default function RootLayout({
         </nav>
 
         {children}
+
+        <SWRegistration />
       </body>
     </html>
   );

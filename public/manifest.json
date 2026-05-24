@@ -1,0 +1,22 @@
+{ "name": "MLB Trivia",
+ "short_name": "Trivia beisbol", 
+ "description": "Esta app es para poner a prueba el conocimiento basico en beisbol", 
+ "start_url": "/",
+  "display": "standalone",
+   "background_color": "#0a84ff", 
+   "theme_color": "#0a84ff",
+    "icons": [ 
+    {
+         "src": "https://www.flaticon.com/free-icon/baseball_694606?term=baseball&page=1&position=3&origin=search&related_id=694606", 
+    "sizes": "192x192", 
+    "type": "image/png", 
+    "purpose": "any" 
+    },
+     { 
+        "src": "https://www.flaticon.com/free-icon/baseball_694606?term=baseball&page=1&position=3&origin=search&related_id=694606",
+         "sizes": "512x512", 
+         "type": "image/png", 
+         "purpose": "maskable" 
+         } 
+         ] 
+        } 
