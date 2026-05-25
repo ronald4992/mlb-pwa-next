@@ -204,146 +204,159 @@ export default function TriviaPage() {
       </main>
 
       <style jsx>{`
-        .trivia-page {
-          min-height: 100vh;
-          background: linear-gradient(
-            135deg,
-            #0f172a,
-            #1e293b,
-            #111827
-          );
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 40px 20px;
-          font-family: Arial, Helvetica, sans-serif;
-        }
+  .trivia-page {
+    min-height: 100vh;
+    background: linear-gradient(
+      135deg,
+      #041c2c,
+      #005c5c,
+      #0a2a43
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-        .trivia-container {
-          width: 100%;
-          max-width: 850px;
-        }
+  .trivia-container {
+    width: 100%;
+    max-width: 850px;
+  }
 
-        .title {
-          text-align: center;
-          font-size: 3.5rem;
-          margin-bottom: 30px;
-          color: white;
-        }
+  .title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    color: #c4ced4;
+    text-shadow: 0 0 12px rgba(0, 92, 92, 0.5);
+  }
 
-        .question-info {
-          text-align: center;
-          color: #cbd5e1;
-          margin-bottom: 20px;
-          font-size: 1.1rem;
-        }
+  .question-info {
+    text-align: center;
+    color: #dbe4ea;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
 
-        .question-card {
-          background: rgba(30, 41, 59, 0.95);
-          padding: 40px;
-          border-radius: 25px;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
+  .question-card {
+    background: rgba(4, 28, 44, 0.95);
+    padding: 40px;
+    border-radius: 25px;
+    border: 2px solid rgba(0, 92, 92, 0.4);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+  }
 
-        .question-card h2 {
-          text-align: center;
-          font-size: 2rem;
-          margin-bottom: 35px;
-          color: white;
-          line-height: 1.4;
-        }
+  .question-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 35px;
+    color: white;
+    line-height: 1.4;
+  }
 
-        .options-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 18px;
-        }
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
 
-        .option-btn {
-          padding: 18px;
-          border: none;
-          border-radius: 14px;
-          background: #334155;
-          color: white;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: 0.3s ease;
-        }
+  .option-btn {
+    padding: 18px;
+    border: none;
+    border-radius: 14px;
+    background: #0a2a43;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid rgba(196, 206, 212, 0.15);
+  }
 
-        .option-btn:hover {
-          background: #475569;
-          transform: translateY(-3px);
-        }
+  .option-btn:hover {
+    background: #005c5c;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 92, 92, 0.5);
+  }
 
-        .correct {
-          background: #16a34a !important;
-        }
+  .correct {
+    background: #008272 !important;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 130, 114, 0.6);
+  }
 
-        .wrong {
-          background: #dc2626 !important;
-        }
+  .wrong {
+    background: #9b1c31 !important;
+    color: white;
+  }
 
-        .score-box {
-          text-align: center;
-          margin-top: 25px;
-          color: white;
-          font-size: 1.3rem;
-        }
+  .score-box {
+    text-align: center;
+    margin-top: 25px;
+    color: #c4ced4;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 
-        .result-card {
-          background: rgba(30, 41, 59, 0.95);
-          padding: 60px 40px;
-          border-radius: 25px;
-          text-align: center;
-          color: white;
-        }
+  .result-card {
+    background: rgba(4, 28, 44, 0.95);
+    padding: 60px 40px;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    border: 2px solid rgba(0, 92, 92, 0.4);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+  }
 
-        .result-card h2 {
-          font-size: 2.7rem;
-          margin-bottom: 20px;
-        }
+  .result-card h2 {
+    font-size: 2.7rem;
+    margin-bottom: 20px;
+    color: #c4ced4;
+  }
 
-        .result-card p {
-          font-size: 1.3rem;
-          color: #d1d5db;
-          margin-bottom: 30px;
-        }
+  .result-card p {
+    font-size: 1.3rem;
+    color: #dbe4ea;
+    margin-bottom: 30px;
+  }
 
-        .restart-btn {
-          padding: 15px 35px;
-          border: none;
-          border-radius: 14px;
-          background: #dc2626;
-          color: white;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: 0.3s ease;
-        }
+  .restart-btn {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 14px;
+    background: #005c5c;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: bold;
+  }
 
-        .restart-btn:hover {
-          background: #ef4444;
-          transform: translateY(-3px);
-        }
+  .restart-btn:hover {
+    background: #008272;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 130, 114, 0.5);
+  }
 
-        @media (max-width: 768px) {
-          .title {
-            font-size: 2.5rem;
-          }
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
 
-          .question-card {
-            padding: 30px 20px;
-          }
+    .question-card {
+      padding: 30px 20px;
+    }
 
-          .question-card h2 {
-            font-size: 1.5rem;
-          }
+    .question-card h2 {
+      font-size: 1.5rem;
+    }
 
-          .options-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
+    .options-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+`}</style>
     </>
   );
 }

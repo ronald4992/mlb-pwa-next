@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./globals.css"
 import Link from "next/link";
 import SWRegistration from "./SWRegistration";
 
@@ -26,10 +26,6 @@ export default function RootLayout({
 
             <Link href="/trivia">
               Trivia
-            </Link>
-
-            <Link href="/baseball-zone">
-              Baseball Zone
             </Link>
 
             <Link href="/mlb-teams">
