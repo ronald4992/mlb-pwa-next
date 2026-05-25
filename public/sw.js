@@ -1,8 +1,8 @@
-// public/sw.js 
+ 
 const CACHE_NAME = 'version-1'; 
-// Definimos las rutas reales de tu aplicación Next.js 
- const urlsToCache = [ '/',      // Tu página Home (page.tsx) 
- '/trivia',   // Tu página Uno (notas/page.tsx) 
+
+ const urlsToCache = [ '/page.tsx',      
+ '/trivia/page.tsx',   // Tu página Uno (notas/page.tsx) 
  '/manifest.json' // Es buena práctica cachear el manifest también
   ]; 
   // Instalar el Service Worker 
