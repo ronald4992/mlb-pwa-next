@@ -1,386 +1,234 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;600;700;800&display=swap');
-
-/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
-@keyframes pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 6px #ef4444; }
-  50%       { opacity: 0.4; box-shadow: 0 0 2px #ef4444; }
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-12px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes cardHover {
-  to { transform: translateY(-3px); box-shadow: 0 12px 40px #00000066; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ─── ROOT ───────────────────────────────────────────────────────────────── */
-.app {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px 60px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  color: #e2e8f0;
-  background: #060b14;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+.page {
   min-height: 100vh;
 }
 
-/* ─── HEADER ─────────────────────────────────────────────────────────────── */
-.header {
-  padding: 32px 0 24px;
-  border-bottom: 1px solid #ffffff11;
-  margin-bottom: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  animation: fadeIn 0.5s ease;
-}
-
-.logoArea {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.wordmark {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 28px;
-  font-weight: 700;
-  color: #f1f5f9;
-  letter-spacing: -0.02em;
-}
-
-.wordmarkAccent { color: #dc2626; }
-
-.date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: #475569;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.liveBadge {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  background: #ef444411;
-  border: 1px solid #ef444433;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #ef4444;
-  letter-spacing: 0.1em;
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-.liveDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ef4444;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* ─── SEARCH ─────────────────────────────────────────────────────────────── */
-.searchBar {
-  width: 100%;
-  background: #0f172a;
-  border: 1px solid #ffffff15;
-  border-radius: 10px;
-  padding: 11px 16px;
-  color: #e2e8f0;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  outline: none;
-  margin-bottom: 20px;
-  transition: border-color 0.2s;
-}
-.searchBar:focus { border-color: #3b82f655; }
-.searchBar::placeholder { color: #334155; }
-
-/* ─── TABS ───────────────────────────────────────────────────────────────── */
-.tabRow {
-  display: flex;
-  gap: 4px;
-  background: #0f172a;
-  border: 1px solid #ffffff0f;
-  border-radius: 10px;
-  padding: 4px;
-  margin-bottom: 20px;
-  width: fit-content;
-}
-
-.tabBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px 22px;
-  border-radius: 7px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: #64748b;
-  transition: all 0.2s;
-  letter-spacing: 0.03em;
-}
-
-.tabBtn.active {
-  background: #1e293b;
-  color: #f1f5f9;
-  box-shadow: 0 1px 8px #00000066;
-}
-
-/* ─── FILTER PILLS ───────────────────────────────────────────────────────── */
-.filterRow {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-
-.pill {
-  background: #0f172a;
-  border: 1px solid #ffffff11;
-  border-radius: 20px;
-  padding: 6px 16px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #64748b;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'IBM Plex Sans', sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.pill.active {
-  background: #1d4ed811;
-  border-color: #3b82f666;
-  color: #60a5fa;
-}
-.pill:hover:not(.active) {
-  border-color: #ffffff22;
-  color: #94a3b8;
-}
-
-/* ─── GAMES GRID ─────────────────────────────────────────────────────────── */
-.gamesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 14px;
-  animation: fadeIn 0.4s ease;
-}
-
-/* ─── GAME CARD ──────────────────────────────────────────────────────────── */
-.gameCard {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border: 1px solid #ffffff11;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.gameCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px #00000066;
-}
-.gameCardLive {
-  border-color: #ef444433;
-}
-
-.cardStatusBar {
-  padding: 6px 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border-bottom: 1px solid #ffffff08;
-}
-.cardStatusBarLive     { background: #ef444422; }
-.cardStatusBarFinal    { background: #ffffff08; }
-.cardStatusBarScheduled { background: #3b82f611; }
-
-.statusDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ef4444;
-  box-shadow: 0 0 6px #ef4444;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-.statusLabel {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  font-family: 'IBM Plex Mono', monospace;
-  text-transform: uppercase;
-}
-.statusLabelLive      { color: #ef4444; }
-.statusLabelFinal     { color: #94a3b8; }
-.statusLabelScheduled { color: #3b82f6; }
-
-.cardBody {
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.teamRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.teamInfo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.teamBadge {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+.hero {
+  position: relative;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  font-size: 9px;
-  font-weight: 900;
-  font-family: 'IBM Plex Mono', monospace;
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1400");
+  background-size: cover;
+  background-position: center;
 }
 
-.teamName {
-  font-size: 13px;
-  font-family: 'IBM Plex Sans', sans-serif;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
-.teamNameWinner { font-weight: 700; color: #f1f5f9; }
-.teamNameLoser  { font-weight: 400; color: #94a3b8; }
 
-.scoreNum {
-  font-size: 22px;
-  font-weight: 800;
-  font-family: 'IBM Plex Mono', monospace;
-  min-width: 28px;
-  text-align: right;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
 }
-.scoreWinner { color: #f1f5f9; }
-.scoreLoser  { color: #64748b; }
 
-/* ─── STANDINGS ──────────────────────────────────────────────────────────── */
-.standingsTable {
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #d1d5db;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.secondary-btn {
+  background: white;
+  color: #111827;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-3px);
+}
+
+.games-section,
+.stats-section,
+.table-section {
+  padding: 70px 8%;
+}
+
+.section-title {
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.section-title span {
+  color: #9ca3af;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  background: #1e293b;
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.inning {
+  color: #f87171;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.team-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.team-row strong {
+  font-size: 1.4rem;
+}
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.player-card {
+  background: #1e293b;
+  border-radius: 20px;
+  padding: 25px;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.player-card:hover {
+  transform: translateY(-6px);
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.player-header h3 {
+  margin-bottom: 6px;
+}
+
+.player-header p {
+  color: #9ca3af;
+}
+
+.badge {
+  background: #dc2626;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-box {
+  background: #0f172a;
+  padding: 18px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.stat-box span {
+  display: block;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.stat-box strong {
+  font-size: 1.3rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
-  animation: fadeIn 0.4s ease;
-}
-
-.standingsTable th {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: #475569;
-  text-transform: uppercase;
-  padding: 10px 16px;
-  text-align: left;
-  border-bottom: 1px solid #ffffff0a;
-  font-weight: 500;
-}
-.standingsTable th:not(:first-child) { text-align: center; }
-
-.standingsTable td {
-  padding: 12px 16px;
-  font-size: 13px;
-  color: #cbd5e1;
-  border-bottom: 1px solid #ffffff07;
-  vertical-align: middle;
-}
-.standingsTable td:not(:first-child) { text-align: center; }
-.standingsTable tr:hover td { background: #ffffff04; }
-
-.rankNum {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: #334155;
-}
-
-.teamCell {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.teamMiniBadge {
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8px;
-  font-weight: 900;
-  flex-shrink: 0;
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-.winsCell {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 700;
-  color: #22c55e;
-}
-.lossesCell {
-  font-family: 'IBM Plex Mono', monospace;
-  color: #ef4444;
-}
-
-.pctCell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-.pctBarWrap {
-  width: 60px;
-  height: 4px;
   background: #1e293b;
-  border-radius: 2px;
+  border-radius: 20px;
   overflow: hidden;
 }
-.pctBar {
-  height: 100%;
-  border-radius: 2px;
-  transition: width 0.5s;
-}
-.pctText {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: #94a3b8;
+
+th,
+td {
+  padding: 18px;
+  text-align: left;
 }
 
-.divisionCell {
-  font-size: 11px;
-  color: #475569;
-  letter-spacing: 0.05em;
+th {
+  background: #dc2626;
 }
 
-/* ─── EMPTY STATE ────────────────────────────────────────────────────────── */
-.emptyState {
-  text-align: center;
-  padding: 60px 20px;
-  color: #334155;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  letter-spacing: 0.1em;
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .wordmark    { font-size: 22px; }
-  .gamesGrid   { grid-template-columns: 1fr; }
-  .pctBarWrap  { display: none; }
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
