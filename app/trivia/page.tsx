@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+
 const questions = [
   {
     question: "¿Qué equipo ha ganado más Series Mundiales?",
@@ -204,145 +205,7 @@ export default function TriviaPage() {
       </main>
 
       <style jsx>{`
-        .trivia-page {
-          min-height: 100vh;
-          background: linear-gradient(
-            135deg,
-            #0f172a,
-            #1e293b,
-            #111827
-          );
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 40px 20px;
-          font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .trivia-container {
-          width: 100%;
-          max-width: 850px;
-        }
-
-        .title {
-          text-align: center;
-          font-size: 3.5rem;
-          margin-bottom: 30px;
-          color: white;
-        }
-
-        .question-info {
-          text-align: center;
-          color: #cbd5e1;
-          margin-bottom: 20px;
-          font-size: 1.1rem;
-        }
-
-        .question-card {
-          background: rgba(30, 41, 59, 0.95);
-          padding: 40px;
-          border-radius: 25px;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .question-card h2 {
-          text-align: center;
-          font-size: 2rem;
-          margin-bottom: 35px;
-          color: white;
-          line-height: 1.4;
-        }
-
-        .options-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 18px;
-        }
-
-        .option-btn {
-          padding: 18px;
-          border: none;
-          border-radius: 14px;
-          background: #334155;
-          color: white;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: 0.3s ease;
-        }
-
-        .option-btn:hover {
-          background: #475569;
-          transform: translateY(-3px);
-        }
-
-        .correct {
-          background: #16a34a !important;
-        }
-
-        .wrong {
-          background: #dc2626 !important;
-        }
-
-        .score-box {
-          text-align: center;
-          margin-top: 25px;
-          color: white;
-          font-size: 1.3rem;
-        }
-
-        .result-card {
-          background: rgba(30, 41, 59, 0.95);
-          padding: 60px 40px;
-          border-radius: 25px;
-          text-align: center;
-          color: white;
-        }
-
-        .result-card h2 {
-          font-size: 2.7rem;
-          margin-bottom: 20px;
-        }
-
-        .result-card p {
-          font-size: 1.3rem;
-          color: #d1d5db;
-          margin-bottom: 30px;
-        }
-
-        .restart-btn {
-          padding: 15px 35px;
-          border: none;
-          border-radius: 14px;
-          background: #dc2626;
-          color: white;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: 0.3s ease;
-        }
-
-        .restart-btn:hover {
-          background: #ef4444;
-          transform: translateY(-3px);
-        }
-
-        @media (max-width: 768px) {
-          .title {
-            font-size: 2.5rem;
-          }
-
-          .question-card {
-            padding: 30px 20px;
-          }
-
-          .question-card h2 {
-            font-size: 1.5rem;
-          }
-
-          .options-grid {
-            grid-template-columns: 1fr;
-          }
-        }
+  
       `}</style>
     </>
   );
