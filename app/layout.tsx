@@ -23,7 +23,18 @@ export default function RootLayout({
 
           <div className="nav-links">
             <Link href="/">Inicio</Link>
-            <Link href="/trivia">Trivia</Link>
+
+            <Link href="/trivia">
+              Trivia
+            </Link>
+
+            <Link href="/baseball-zone">
+              Baseball Zone
+            </Link>
+
+            <Link href="/mlb-teams">
+              MLB Teams
+            </Link>
           </div>
         </nav>
 
